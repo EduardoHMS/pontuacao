@@ -29,6 +29,27 @@ public class pontuacao {
 		char formasPagamento = sc.next().charAt(0);
 		System.out.println(" ");
 		
+		// Score de volume de compras //
+		double volumeConta = 0.0;
+		int volumePontos = 0;
+		volumeConta = compras * medio;
+		if(compras == 0) {
+			volumePontos = 0;
+		}else if(compras <= 2) {
+			if(volumeConta <= 3000.00) {
+				volumePontos = 20;
+			}else if(volumeConta > 3000.00) {
+				volumePontos = 60;
+			}
+		}else if(compras > 2) {
+			if(volumeConta <= 3000.00) {
+				volumePontos = 40;
+			}else if(volumeConta > 3000.00) {
+				volumePontos = 60;
+			}
+		}
+		System.out.println("Score de volume de compras = " + volumePontos);
+		System.out.println(" ");
 		
 		sc.close();
 	}
