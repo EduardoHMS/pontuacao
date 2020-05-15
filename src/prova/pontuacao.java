@@ -64,6 +64,16 @@ public class pontuacao {
 		System.out.println("Score de forma de pagamento = " + pontoFormas + " pontos");
 		System.out.println(" ");
 		
+		//CLASSIFICACAO FINAL //
+		int totalPontos = pontoFormas+inadimplencia+volumePontos;
+		if(totalPontos <= 25) {
+			System.out.println("Classificação final = CLIENTE BRONZE");
+		}else if(totalPontos <= 75) {
+			System.out.println("Classificação final = CLIENTE PRATA");
+		}else if(totalPontos > 75) {
+			System.out.println("Classificação final = CLIENTE OURO");
+		}
+		
 		sc.close();
 	}
 
