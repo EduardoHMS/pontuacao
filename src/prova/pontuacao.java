@@ -20,6 +20,14 @@ public class pontuacao {
 		int compras = sc.nextInt();
 		System.out.println("Qual o ticket médio? ");
 		double medio = sc.nextDouble();
+		System.out.println(" ");
+		
+		// Leitura dos outros dados //
+		System.out.println("Quantas vezes o cliente atrasou o pagamento? ");
+		int atraso = sc.nextInt();
+		System.out.println("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
+		char formasPagamento = sc.next().charAt(0);
+		System.out.println(" ");
 		
 		
 		sc.close();
