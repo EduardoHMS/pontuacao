@@ -35,20 +35,33 @@ public class pontuacao {
 		volumeConta = compras * medio;
 		if(compras == 0) {
 			volumePontos = 0;
-		}else if(compras <= 2) {
-			if(volumeConta <= 3000.00) {
-				volumePontos = 20;
-			}else if(volumeConta > 3000.00) {
-				volumePontos = 60;
-			}
-		}else if(compras > 2) {
-			if(volumeConta <= 3000.00) {
-				volumePontos = 40;
-			}else if(volumeConta > 3000.00) {
-				volumePontos = 60;
-			}
+		}else if((compras <= 2)&&(volumeConta <= 3000.00)) {
+			volumePontos = 20;
+		}else if((compras > 2) && (volumeConta <= 3000.00)) {
+			volumePontos = 40;
+		}else if(volumeConta > 3000.00) {
+			volumePontos = 60;
 		}
-		System.out.println("Score de volume de compras = " + volumePontos);
+		System.out.println("Score de volume de compras = " + volumePontos + " pontos");
+		System.out.println(" ");
+
+		// Score de inadimplencia e de pagamento //
+		int inadimplencia = 0;
+		if((atraso > 1)||(compras == 0)) {
+			inadimplencia = 0;
+		}else if((compras > 0)&&(atraso >= 1)) {
+			inadimplencia = 15;
+		}else if((compras > 0)&&(atraso == 0)) {
+			inadimplencia = 30;
+		}
+		System.out.println("Score de inadimplência = " + inadimplencia + " pontos");
+		int pontoFormas = 0;
+		if((compras > 0)&&(Character.toLowerCase(formasPagamento)=='d')) {
+			pontoFormas = 5;
+		}else if((compras > 0)&&((Character.toLowerCase(formasPagamento)=='c')||(Character.toLowerCase(formasPagamento)=='b'))) {
+			pontoFormas = 10;
+		}
+		System.out.println("Score de forma de pagamento = " + pontoFormas + " pontos");
 		System.out.println(" ");
 		
 		sc.close();
